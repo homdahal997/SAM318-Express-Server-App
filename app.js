@@ -10,6 +10,15 @@ const PORT = 3001;
 const postRouter = require("./routes/posts.js");
 const error = require("./utilities/error.js");
 
+// Set 'pug' as the view engine for the application
+app.set('view engine', 'pug');
+
+/// Define a route handler for GET requests made to the root path ('/')
+app.get("/", (req, res) =>{
+    // Send the following view as response to the client
+    res.render("index")
+});
+
 // We use the body-parser middleware FIRST so that
 // we have access to the parsed data within our routes.
 // The parsed data will be located in "req.body".
