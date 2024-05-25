@@ -1,0 +1,26 @@
+.navbar {
+    border-bottom: 1px solid #000000 !important;
+    /* Change color as needed */
+
+}
+
+.fw-bolder {
+    font-size: 120px;
+    background-image: url('https://miro.medium.com/v2/format:webp/4*SdjkdS98aKH76I8eD0_qjw.png');
+    /* Replace with your image path */
+    background-size: cover;
+    /* This will make the image cover the entire area */
+    background-repeat: no-repeat;
+    /* This will prevent the image from repeating */
+}
+
+.blogdetails {
+    margin-top: 10px;
+}
+
+.image-container {
+    border: 20px solid #e4dfd5;
+    /* padding: 10px; */
+    border-radius: 16px;
+    transition: transform 0.3s ease-in-out;
+}
