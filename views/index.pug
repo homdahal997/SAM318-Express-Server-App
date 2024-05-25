@@ -13,86 +13,72 @@ html(lang="en")
         // custom css 
         link(rel='stylesheet' type="text/css" href="/css/styles.css")
     body
-    nav.navbar.navbar-expand-lg.navbar-light.bg-light
+    // Responsive navbar
+nav.navbar.navbar-expand-lg.navbar-light.bg-light
+    .container
+        a.navbar-brand(href='#!') Medium Clone API
+        button.navbar-toggler(type='button' data-bs-toggle='collapse' data-bs-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation')
+            span.navbar-toggler-icon
+        #navbarSupportedContent.collapse.navbar-collapse
+            ul.navbar-nav.ms-auto.mb-2.mb-lg-0
+                li.nav-item
+                    a.nav-link(href='#') Home
+                li.nav-item
+                    a.nav-link(href='#!') About
+                li.nav-item
+                    a.nav-link(href='#!') Contact
+                li.nav-item
+                    a.nav-link.active(aria-current='page' href='#') Blog
+// Page header with logo and tagline
+header.py-5.bg-light.border-bottom.mb-4
+    .container
+        .my-5
+            h1.fw-bolder
+                | Human 
+                br
+                |                         stories &amp; ideas
+            p.lead.mb-0 A place to read, write, and deepen your understanding
+// Page content
 .container
-    a.navbar-brand(href='#!') Medium Clone API
-    button.navbar-toggler(type='button' data-bs-toggle='collapse' data-bs-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation')
-        span.navbar-toggler-icon
-    #navbarSupportedContent.collapse.navbar-collapse
-        ul.navbar-nav.ms-auto.mb-2.mb-lg-0
-            li.nav-item
-                a.nav-link(href='#') Home
-            li.nav-item
-                a.nav-link(href='#!') About
-            li.nav-item
-                a.nav-link(href='#!') Contact
-            li.nav-item
-                a.nav-link.active(aria-current='page' href='#') Blog
-
-                // Page content
-.blogdetails.container
-    .row.no-gutters.d-flex.align-items-start
-        .col-md-8
-            .card-body
-                h2.card-title.h4 Post Title
-                p.card-text
-                    | Lorem ipsum dolor sit amet consectetur adipisicing elit. A dolor assumenda
-                    | dolorem voluptatem impedit veniam odit vitae. Commodi illum doloremque soluta, architecto neque
-                    | suscipit nulla blanditiis perspiciatis fugiat voluptate molestiae officia voluptatum beatae
-                    | impedit iusto quia animi dolore veritatis officiis nobis nihil necessitatibus? Quaerat ipsam
-                    | accusamus vel libero officiis porro? Quis, quasi qui, voluptatum dicta non praesentium dolorum
-                    | iste tenetur asperiores veniam, assumenda ullam recusandae quae? Praesentium obcaecati eos
-                    | suscipit fugit voluptas mollitia amet voluptatum vitae molestias officia. Molestias rem,
-                    | provident iure placeat ea cupiditate ab obcaecati autem pariatur sint est aliquam iusto amet
-                    | commodi! Illum eos quidem repellendus. Ipsum! Lorem ipsum dolor sit amet consectetur adipisicing
-                    | elit. Eaque quam exercitationem sit tenetur aliquid repudiandae optio alias! Totam id nulla iste
-                    | inventore minima eius autem placeat accusantium voluptate, ipsam quidem dolorum porro illum
-                    | sequi earum dolore magni sapiente expedita distinctio modi quasi. Laborum ad reiciendis
-                    | perferendis dolorum unde qui ratione maiores totam perspiciatis dolores consequuntur quia odit
-                    | voluptatum repudiandae necessitatibus, iure quidem voluptatibus tempore illo. Eos error
-                    | cupiditate ab, molestiae inventore saepe rem accusantium dolorem minima labore. Nisi deleniti ab
-                    | explicabo doloribus cupiditate libero illum, optio nihil fuga quaerat nostrum quod, nam odio
-                    | quibusdam sit dolorum vero architecto sunt ratione.
-        .image-container.col-md-4
-            a(href='#!')
-                img.card-img-top(src='https://placehold.co/600x400/EEE/31343C' alt='...')
-        section
-            .container.my-5.py-5
-                .row.d-flex
-                    .col-md-12.col-lg-10.col-xl-8
-                        .card
-                            .card-body
-                                .d-flex.flex-start.align-items-center
-                                    img.rounded-circle.shadow-1-strong.me-3(src='https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(19).webp' alt='avatar' width='60' height='60')
-                                    div
-                                        h6.fw-bold.text-primary.mb-1 Lily Coleman
-                                        p.text-muted.small.mb-0
-                                            | Shared publicly - Jan 2020
-                                p.mt-3.mb-4.pb-2
-                                    | Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                                    | tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                                    | quis nostrud exercitation ullamco laboris nisi ut aliquip consequat.
-                                .small.d-flex.justify-content-start
-                                    a.d-flex.align-items-center.me-3(href='#!')
-                                        i.far.fa-thumbs-up.me-2
-                                        p.mb-0 Like
-                                    a.d-flex.align-items-center.me-3(href='#!')
-                                        i.far.fa-comment-dots.me-2
-                                        p.mb-0 Comment
-                                    a.d-flex.align-items-center.me-3(href='#!')
-                                        i.fas.fa-share.me-2
-                                        p.mb-0 Share
-                            .card-footer.py-3.border-0(style='background-color: #f8f9fa;')
-                                .d-flex.flex-start.w-100
-                                    img.rounded-circle.shadow-1-strong.me-3(src='https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(19).webp' alt='avatar' width='40' height='40')
-                                    .form-outline.w-100(data-mdb-input-init='')
-                                        textarea#textAreaExample.form-control(rows='4' style='background: #fff;')
-                                        label.form-label(for='textAreaExample') Message
-                                .float-end.mt-2.pt-1
-                                    button.btn.btn-primary.btn-sm(type='button' data-mdb-button-init='' data-mdb-ripple-init='') Post comment
-                                    button.btn.btn-outline-primary.btn-sm(type='button' data-mdb-button-init='' data-mdb-ripple-init='') Cancel
+    .row
+        .col-lg-4
+            // Blog post
+            .card.mb-4
+                a(href='#!')
+                    img.card-img-top(src='https://dummyimage.com/700x350/dee2e6/6c757d.jpg' alt='...')
+                .card-body
+                    .small.text-muted January 1, 2023
+                    h2.card-title.h4 Post Title
+                    p.card-text
+                        | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla.
+                    a.btn.btn-primary(href='#!') Read more &rarr;
+        .col-lg-4
+            // Blog post
+            .card.mb-4
+                a(href='#!')
+                    img.card-img-top(src='https://dummyimage.com/700x350/dee2e6/6c757d.jpg' alt='...')
+                .card-body
+                    .small.text-muted January 1, 2023
+                    h2.card-title.h4 Post Title
+                    p.card-text
+                        | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla.
+                    a.btn.btn-primary(href='#!') Read more &rarr;
+        .col-lg-4
+            // Blog post
+            .card.mb-4
+                a(href='#!')
+                    img.card-img-top(src='https://dummyimage.com/700x350/dee2e6/6c757d.jpg' alt='...')
+                .card-body
+                    .small.text-muted January 1, 2023
+                    h2.card-title.h4 Post Title
+                    p.card-text
+                        | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla.
+                    a.btn.btn-primary(href='#!') Read more &rarr;
+// Footer
 footer.py-5.bg-dark
     .container
         p.m-0.text-center.text-white Copyright &copy; Your Website 2023
 // Bootstrap core JS
 script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js')
+// Core theme JS
+script(src='js/scripts.js')

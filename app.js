@@ -25,6 +25,9 @@ app.get("/", (req, res) =>{
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json({ extended: true }));
 
+// This middleware serves static files from the 'public' directory.
+app.use(express.static('public'));
+
 // New logging middleware to help us keep track of
 // requests during testing!
 app.use((req, res, next) => {
