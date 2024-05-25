@@ -21,3 +21,5 @@ router.get('/', (req, res) => {
 
     res.json({ posts, links });
 });
+
+module.exports = router;
