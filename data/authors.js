@@ -11,4 +11,4 @@ const authors = [
     { "id": 10, "name": "Jack Thomas", "email": "jack.thomas@example.com" }
 ];
 
-module.exports = users;
+module.exports = authors;
