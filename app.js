@@ -33,6 +33,10 @@ ${time.toLocaleTimeString()}: Received a ${req.method} request to ${req.url}.`
     next();
 });
 
+// API ROUTES
+// Post Routes
+app.use('/api/posts', postRouter);
+
 // start the server and listen on the defined port
 // app.listen() takes two paramenter, the port and callback function
 // the callback function will be executed once the server is running indication port.
