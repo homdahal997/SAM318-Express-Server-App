@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 //Importing the data from our fake database file
 const posts = require('../data/posts.js');
+const authors = require("../data/authors.js")
 
 //////////////////
 // BASE PATH
@@ -12,8 +13,12 @@ const posts = require('../data/posts.js');
 router.get('/posts', (req, res) => {
     const baseURL = 'http://localhost:3001';
     const postsWithLinks = posts.map(p => {
+        const author = authors.find(author => author.id == p.author_id);
+        console.log(author)
+        
         return {
             ...p,
+            author_name: author ? author.name : 'Author not found',
             links: [
                 { rel: 'self', href: `${baseURL}/api/posts/${p.id}` },
             ],
@@ -21,6 +26,7 @@ router.get('/posts', (req, res) => {
     });
 
     res.json({ posts: postsWithLinks });
+
 });
 
 // Render data in index file

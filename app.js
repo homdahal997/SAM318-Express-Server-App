@@ -1,7 +1,7 @@
 // import express module 
 const express = require("express");
 // Import axios
-const axios = require('axios');
+// const axios = require('axios');
 
 // Create an instance of an express application
 const app = express();
@@ -43,7 +43,7 @@ ${time.toLocaleTimeString()}: Received a ${req.method} request to ${req.url}.`
 // API ROUTES
 // Post Routes
 app.use('/', postRouter);
-app.use('/api', postRouter);
+app.use('/api/v1', postRouter);
 
 // start the server and listen on the defined port
 // app.listen() takes two paramenter, the port and callback function
