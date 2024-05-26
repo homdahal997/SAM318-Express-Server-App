@@ -41,44 +41,22 @@ header.py-5.bg-light.border-bottom.mb-4
 // Page content
 .container
     .row
-        .col-lg-4
-            // Blog post
-            .card.mb-4
-                a(href='#!')
-                    img.card-img-top(src='https://dummyimage.com/700x350/dee2e6/6c757d.jpg' alt='...')
-                .card-body
-                    .small.text-muted January 1, 2023
-                    h2.card-title.h4 Post Title
-                    p.card-text
-                        | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla.
-                    a.btn.btn-primary(href='#!') Read more &rarr;
-        .col-lg-4
-            // Blog post
-            .card.mb-4
-                a(href='#!')
-                    img.card-img-top(src='https://dummyimage.com/700x350/dee2e6/6c757d.jpg' alt='...')
-                .card-body
-                    .small.text-muted January 1, 2023
-                    h2.card-title.h4 Post Title
-                    p.card-text
-                        | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla.
-                    a.btn.btn-primary(href='#!') Read more &rarr;
-        .col-lg-4
-            // Blog post
-            .card.mb-4
-                a(href='#!')
-                    img.card-img-top(src='https://dummyimage.com/700x350/dee2e6/6c757d.jpg' alt='...')
-                .card-body
-                    .small.text-muted January 1, 2023
-                    h2.card-title.h4 Post Title
-                    p.card-text
-                        | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla.
-                    a.btn.btn-primary(href='#!') Read more &rarr;
+        each post in posts
+            .col-lg-4
+                // Blog post
+                .card.mb-4
+                    a(href=`posts/${post.id}`)
+                        img.card-img-top(src = post.image_url, alt = post.title)
+                    .card-body
+                        .small.text-muted= post.timestamp 
+                        h2.card-title.h4= post.title
+                        p.card-text
+                            | #{post.content.split('. ').slice(0, 3).join('. ') + '.'}
+                        a.btn.btn-primary(href=`posts/${post.id}`) Read more &rarr;
 // Footer
 footer.py-5.bg-dark
     .container
         p.m-0.text-center.text-white Copyright &copy; Your Website 2023
 // Bootstrap core JS
 script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js')
-// Core theme JS
-script(src='js/scripts.js')
+

@@ -8,18 +8,24 @@ const posts = require('../data/posts.js');
 // - /api/posts
 //////////////////
 
-// Creating a GET route for the entire posts database.
-// This would be impractical in larger data sets.
-router.get('/', (req, res) => {
-    const links = [
-        {
-            href: 'posts/:id',
-            rel: ':id',
-            type: 'GET',
-        },
-    ];
+// Get the json data itself
+router.get('/posts', (req, res) => {
+    const baseURL = 'http://localhost:3001';
+    const postsWithLinks = posts.map(p => {
+        return {
+            ...p,
+            links: [
+                { rel: 'self', href: `${baseURL}/api/posts/${p.id}` },
+            ],
+        };
+    });
 
-    res.json({ posts, links });
+    res.json({ posts: postsWithLinks });
+});
+
+// Render data in index file
+router.get('/', (req, res) => {
+    res.render('index', { posts });
 });
 
 module.exports = router;

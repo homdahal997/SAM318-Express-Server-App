@@ -1,5 +1,7 @@
 // import express module 
 const express = require("express");
+// Import axios
+const axios = require('axios');
 
 // Create an instance of an express application
 const app = express();
@@ -12,13 +14,6 @@ const error = require("./utilities/error.js");
 
 // Set 'pug' as the view engine for the application
 app.set('view engine', 'pug');
-
-/// Define a route handler for GET requests made to the root path ('/')
-app.get("/", (req, res) =>{
-    // Send the following view as response to the client
-    res.render("index")
-});
-
 // We use the body-parser middleware FIRST so that
 // we have access to the parsed data within our routes.
 // The parsed data will be located in "req.body".
@@ -47,7 +42,8 @@ ${time.toLocaleTimeString()}: Received a ${req.method} request to ${req.url}.`
 
 // API ROUTES
 // Post Routes
-app.use('/api/posts', postRouter);
+app.use('/', postRouter);
+app.use('/api', postRouter);
 
 // start the server and listen on the defined port
 // app.listen() takes two paramenter, the port and callback function
