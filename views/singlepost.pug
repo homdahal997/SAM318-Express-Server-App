@@ -43,37 +43,20 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light
             .container.my-5.py-5
                 .row.d-flex
                     .col-md-12.col-lg-10.col-xl-8
-                        .card
+                        h2 Comments Section
+                        .card 
+                        each comment in comments
                             .card-body
                                 .d-flex.flex-start.align-items-center
-                                    img.rounded-circle.shadow-1-strong.me-3(src='https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(19).webp' alt='avatar' width='60' height='60')
-                                    div
-                                        h6.fw-bold.text-primary.mb-1 Lily Coleman
-                                        p.text-muted.small.mb-0
-                                            | Shared publicly - Jan 2020
                                 p.mt-3.mb-4.pb-2
-                                    | Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                                    | tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                                    | quis nostrud exercitation ullamco laboris nisi ut aliquip consequat.
-                                .small.d-flex.justify-content-start
-                                    a.d-flex.align-items-center.me-3(href='#!')
-                                        i.far.fa-thumbs-up.me-2
-                                        p.mb-0 Like
-                                    a.d-flex.align-items-center.me-3(href='#!')
-                                        i.far.fa-comment-dots.me-2
-                                        p.mb-0 Comment
-                                    a.d-flex.align-items-center.me-3(href='#!')
-                                        i.fas.fa-share.me-2
-                                        p.mb-0 Share
-                            .card-footer.py-3.border-0(style='background-color: #f8f9fa;')
-                                .d-flex.flex-start.w-100
-                                    img.rounded-circle.shadow-1-strong.me-3(src='https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(19).webp' alt='avatar' width='40' height='40')
-                                    .form-outline.w-100(data-mdb-input-init='')
-                                        textarea#textAreaExample.form-control(rows='4' style='background: #fff;')
-                                        label.form-label(for='textAreaExample') Message
+                                    | #{comment.content}
+                            hr
+                        form.d-flex.flex-start.w-100(action=`/posts/${post.id}/comments` method='post')
+                            .form-outline.w-100(data-mdb-input-init='')
+                                textarea#textAreaExample.form-control(name='comment' rows='4' style='background: #fff;')
+                                label.form-label(for='textAreaExample') Add comment and click post
                                 .float-end.mt-2.pt-1
-                                    button.btn.btn-primary.btn-sm(type='button' data-mdb-button-init='' data-mdb-ripple-init='') Post comment
-                                    button.btn.btn-outline-primary.btn-sm(type='button' data-mdb-button-init='' data-mdb-ripple-init='') Cancel
+                                    button.btn.btn-primary.btn-sm(type='submit' data-mdb-button-init='' data-mdb-ripple-init='') Post comment     
 
 // Footer
 footer.py-5.bg-dark

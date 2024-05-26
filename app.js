@@ -10,6 +10,7 @@ const app = express();
 const PORT = 3001;
 
 const postRouter = require("./routes/posts.js");
+const commentRouter = require("./routes/comments.js")
 const error = require("./utilities/error.js");
 
 // Set 'pug' as the view engine for the application
@@ -44,6 +45,8 @@ ${time.toLocaleTimeString()}: Received a ${req.method} request to ${req.url}.`
 // Post Routes
 app.use('/', postRouter);
 app.use('/api/v1', postRouter);
+app.use('/api/v1', commentRouter);
+//app.use("/posts",postRouter)
 
 // start the server and listen on the defined port
 // app.listen() takes two paramenter, the port and callback function
