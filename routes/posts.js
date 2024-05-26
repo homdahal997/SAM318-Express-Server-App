@@ -34,4 +34,14 @@ router.get('/', (req, res) => {
     res.render('index', { posts });
 });
 
+router.get('/posts/:id', (req, res) => {
+    const post = posts.find(p => p.id == req.params.id);
+    if (!post) {
+        res.status(404).send('Post not found');
+    } else {
+        res.render('singlepost', { post });
+    }
+});
+
+
 module.exports = router;
