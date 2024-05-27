@@ -5,15 +5,18 @@ const posts = require('../data/posts.js');
 const authors = require("../data/authors.js")
 const comments = require("../data/comments.js");
 
+
 //////////////////
 // BASE PATH
-// - /api/posts
+// - /api/v1
 //////////////////
 
-// Get the json data itself
+// Define a GET route for '/posts'
 router.get('/posts', (req, res) => {
+    // Define the base URL of the API
     const baseURL = 'http://localhost:3001';
     const postsWithLinks = posts.map(p => {
+        console.log(p.author_id);
         const author = authors.find(author => author.id == p.author_id);
         console.log(author)
 
