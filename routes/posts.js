@@ -60,13 +60,43 @@ router.post('/', (req, res, next) => {
             title: req.body.title,
             content: req.body.content,
             author_id: req.body.author_id,
-            timestamp: req.body.timestamp,
+            timestamp: new Date().toISOString(),
             image_url: req.body.image_url,
         };
 
         posts.push(post);
         res.json(posts[posts.length - 1]);
     } else next(new Error('Insufficient Data'));
+});
+
+router.patch('/:id', (req, res) => {
+    // Within the PATCH request route, we allow the client
+    // to make changes to an existing user in the database.
+    const post = posts.find((p, i) => {
+        if (p.id == req.params.id) {
+            // iterating through the user object and updating each property with the data that was sent by the client
+            for (const key in req.body) {
+                posts[i][key] = req.body[key];
+            }
+            return true;
+        }
+    });
+
+    if (post) res.json(post);
+    else next();
+});
+
+router.delete('/:id', (req, res) => {
+    // The DELETE request route simply removes a resource.
+    const post = posts.find((p, i) => {
+        if (p.id == req.params.id) {
+            posts.splice(i, 1);
+            return true;
+        }
+    });
+
+    if (post) res.json(post);
+    else next();
 });
 
 router.post('/posts/:id/comments', (req, res) => {
