@@ -48,6 +48,27 @@ router.get('/posts/:id', (req, res) => {
     }
 });
 
+// Creating a Post (POST)
+router.post('/', (req, res, next) => {
+    // Within the POST request route, we create a new
+    // post with the data given by the client.
+    // We should also do some more robust validation here,
+    // but this is just an example for now.
+    if (req.body.userId && req.body.title && req.body.content && req.body.author_id && req.body.timestamp && req.body.image_url) {
+        const post = {
+            id: posts[posts.length - 1].id + 1,
+            title: req.body.title,
+            content: req.body.content,
+            author_id: req.body.author_id,
+            timestamp: req.body.timestamp,
+            image_url: req.body.image_url,
+        };
+
+        posts.push(post);
+        res.json(posts[posts.length - 1]);
+    } else next(new Error('Insufficient Data'));
+});
+
 router.post('/posts/:id/comments', (req, res) => {
     const newComment = {
         id: comments.length + 1,
@@ -61,7 +82,7 @@ router.post('/posts/:id/comments', (req, res) => {
     // Send a success message
     //res.status(200).send({ message: 'Comment posted successfully', comment: newComment });
     // Redirect to the same page
-    
+
     res.redirect(`/posts/${req.params.id}`);
 });
 
