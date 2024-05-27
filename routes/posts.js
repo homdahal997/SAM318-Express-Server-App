@@ -16,7 +16,7 @@ router.get('/posts', (req, res) => {
     const postsWithLinks = posts.map(p => {
         const author = authors.find(author => author.id == p.author_id);
         console.log(author)
-        
+
         return {
             ...p,
             author_name: author ? author.name : 'Author not found',
@@ -55,7 +55,9 @@ router.post('/posts/:id/comments', (req, res) => {
     };
 
     comments.push(newComment);
-
+    // Send a success message
+    //res.status(200).send({ message: 'Comment posted successfully', comment: newComment });
+    // Redirect to the same page
     res.redirect(`/posts/${req.params.id}`);
 });
 
