@@ -45,8 +45,32 @@ ${time.toLocaleTimeString()}: Received a ${req.method} request to ${req.url}.`
 // Post Routes
 app.use('/', postRouter);
 app.use('/api/v1', postRouter);
+
+// comment routes
 app.use('/api/v1', commentRouter);
 //app.use("/posts",postRouter)
+
+// Custom 404 (not found) middleware.
+// Since we place this last, it will only process
+// if no other routes have already sent a response!
+// We also don't need next(), since this is the
+// last stop along the request-response cycle.
+app.use((req, res, next) => {
+    next(error(404, 'Resource Not Found'));
+});
+
+// Error-handling middleware.
+// Any call to next() that includes an
+// Error() will skip regular middleware and
+// only be processed by error-handling middleware.
+// This changes our error handling throughout the application,
+// but allows us to change the processing of ALL errors
+// at once in a single location, which is important for
+// scalability and maintainability.
+app.use((err, req, res, next) => {
+    res.status(err.status || 500);
+    res.json({ error: err.message });
+});
 
 // start the server and listen on the defined port
 // app.listen() takes two paramenter, the port and callback function
