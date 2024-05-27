@@ -49,7 +49,7 @@ router.get('/posts/:id', (req, res) => {
 });
 
 // Creating a Post (POST)
-router.post('/', (req, res, next) => {
+router.post('/posts', (req, res, next) => {
     // Within the POST request route, we create a new
     // post with the data given by the client.
     // We should also do some more robust validation here,

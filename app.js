@@ -43,7 +43,8 @@ ${time.toLocaleTimeString()}: Received a ${req.method} request to ${req.url}.`
 
 // API ROUTES
 // Post Routes
-app.use('/', postRouter);
+app.use('/', postRouter); // for pug view
+
 app.use('/api/v1', postRouter);
 
 // comment routes
