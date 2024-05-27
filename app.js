@@ -11,6 +11,7 @@ const PORT = 3001;
 
 const postRouter = require("./routes/posts.js");
 const commentRouter = require("./routes/comments.js")
+const authorRouter = require("./routes/authors.js")
 const error = require("./utilities/error.js");
 
 // Set 'pug' as the view engine for the application
@@ -49,7 +50,10 @@ app.use('/api/v1', postRouter);
 
 // comment routes
 app.use('/api/v1', commentRouter);
-//app.use("/posts",postRouter)
+
+// author routes
+app.use('/api/v1', authorRouter);
+
 
 // Custom 404 (not found) middleware.
 // Since we place this last, it will only process
