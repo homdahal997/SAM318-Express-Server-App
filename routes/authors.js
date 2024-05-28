@@ -49,4 +49,17 @@ router.patch('/:id', (req, res, next) => {
     else next();
 });
 
+// Deleting an Author (DELETE)
+router.delete('/:id', (req, res, next) => {
+    const author = authors.find((a, i) => {
+        if (a.id == req.params.id) {
+            authors.splice(i, 1);
+            return true;
+        }
+    });
+
+    if (author) res.json(author);
+    else next();
+});
+
 module.exports = router;
