@@ -53,7 +53,7 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light
                             hr
                         form.d-flex.flex-start.w-100(action=`/posts/${post.id}/comments` method='post')
                             .form-outline.w-100(data-mdb-input-init='')
-                                textarea#textAreaExample.form-control(name='content' rows='4' style='background: #fff;')
+                                textarea#textAreaExample.form-control(name='content' rows='4' style='background: #fff;' required)
                                 label.form-label(for='textAreaExample') Add comment and click post
                                 .float-end.mt-2.pt-1
                                     button.btn.btn-primary.btn-sm(type='submit' data-mdb-button-init='' data-mdb-ripple-init='') Post comment     
