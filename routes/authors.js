@@ -20,6 +20,15 @@ router.get('/authors', (req, res) => {
     res.json({ authors, links });
 });
 
+router.get('/authors/:id', (req, res) => {
+    const author = authors.find(a => a.id == req.params.id);
+    if (!author) {
+        res.status(404).send('Author not found');
+    } else {
+        res.render('singleauthor', { author });
+    }
+});
+
 // Creating an Author (POST)
 router.post('/authors', (req, res, next) => {
     if (req.body.name && req.body.email) {
