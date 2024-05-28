@@ -51,4 +51,17 @@ router.patch('/:id', (req, res, next) => {
     else next();
 });
 
+// Deleting a Comment (DELETE)
+router.delete('/:id', (req, res, next) => {
+    const comment = comments.find((c, i) => {
+        if (c.id == req.params.id) {
+            comments.splice(i, 1);
+            return true;
+        }
+    });
+
+    if (comment) res.json(comment);
+    else next();
+});
+
 module.exports = router;
