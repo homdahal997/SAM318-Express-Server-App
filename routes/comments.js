@@ -20,4 +20,20 @@ router.get('/comments', (req, res) => {
     res.json({ comments, links });
 });
 
+// Creating a Comment (POST)
+router.post('/comments', (req, res, next) => {
+    if (req.body.post_id && req.body.author_id && req.body.content && req.body.timestamp) {
+        const comment = {
+            id: comments[comments.length - 1].id + 1,
+            post_id: req.body.post_id,
+            author_id: req.body.author_id,
+            content: req.body.content,
+            timestamp: new Date().toISOString(),
+        };
+
+        comments.push(comment);
+        res.json(comments[comments.length - 1]);
+    } else next(new Error('Insufficient Data'));
+});
+
 module.exports = router;
