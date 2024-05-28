@@ -34,4 +34,19 @@ router.post('/authors', (req, res, next) => {
     } else next(new Error('Insufficient Data'));
 });
 
+// Updating an Author (PATCH)
+router.patch('/:id', (req, res, next) => {
+    const author = authors.find((a, i) => {
+        if (a.id == req.params.id) {
+            for (const key in req.body) {
+                authors[i][key] = req.body[key];
+            }
+            return true;
+        }
+    });
+
+    if (author) res.json(author);
+    else next();
+});
+
 module.exports = router;
