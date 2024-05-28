@@ -20,6 +20,15 @@ router.get('/comments', (req, res) => {
     res.json({ comments, links });
 });
 
+router.get('/comments/:id', (req, res) => {
+    const comment = comments.find(c => c.id == req.params.id);
+    if (!comment) {
+        res.status(404).send('Comment not found');
+    } else {
+        res.render('singlecomment', { comment });
+    }
+});
+
 // Creating a Comment (POST)
 router.post('/comments', (req, res, next) => {
     if (req.body.post_id && req.body.author_id && req.body.content && req.body.timestamp) {
