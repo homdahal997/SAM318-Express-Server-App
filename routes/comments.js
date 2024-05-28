@@ -36,4 +36,19 @@ router.post('/comments', (req, res, next) => {
     } else next(new Error('Insufficient Data'));
 });
 
+// Updating a Comment (PATCH)
+router.patch('/:id', (req, res, next) => {
+    const comment = comments.find((c, i) => {
+        if (c.id == req.params.id) {
+            for (const key in req.body) {
+                comments[i][key] = req.body[key];
+            }
+            return true;
+        }
+    });
+
+    if (comment) res.json(comment);
+    else next();
+});
+
 module.exports = router;
