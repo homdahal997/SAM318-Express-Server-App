@@ -110,10 +110,10 @@ router.post('/posts/:id/comments', (req, res) => {
 
     comments.push(newComment);
     // Send a success message
-    //res.status(200).send({ message: 'Comment posted successfully', comment: newComment });
+    res.status(200).send({ message: 'Comment posted successfully', comment: newComment });
     // Redirect to the same page
 
-    res.redirect(`/posts/${req.params.id}`);
+    //res.redirect(`/posts/${req.params.id}`);
 });
 
 
