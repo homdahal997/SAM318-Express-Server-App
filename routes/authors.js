@@ -20,4 +20,18 @@ router.get('/authors', (req, res) => {
     res.json({ authors, links });
 });
 
+// Creating an Author (POST)
+router.post('/authors', (req, res, next) => {
+    if (req.body.name && req.body.email) {
+        const author = {
+            id: authors[authors.length - 1].id + 1,
+            name: req.body.name,
+            email: req.body.email,
+        };
+
+        authors.push(author);
+        res.json(authors[authors.length - 1]);
+    } else next(new Error('Insufficient Data'));
+});
+
 module.exports = router;
