@@ -17,12 +17,12 @@ router.get('/posts', (req, res) => {
     const baseURL = 'http://localhost:3001';
     const postsWithLinks = posts.map(p => {
         console.log(p.author_id);
-        const author = authors.find(author => author.id == p.author_id);
+        //const author = authors.find(author => author.id == p.author_id);
         console.log(author)
 
         return {
             ...p,
-            author_name: author ? author.name : 'Author not found',
+            //author_name: author ? author.name : 'Author not found',
             links: [
                 { rel: 'self', href: `${baseURL}/api/posts/${p.id}` },
             ],

@@ -48,7 +48,7 @@ header.py-5.bg-light.border-bottom.mb-4
                     a(href=`posts/${post.id}`)
                         img.card-img-top(src = post.image_url, alt = post.title)
                     .card-body
-                        .small.text-muted= `Posted by ${post.author_name} on ${post.timestamp}`
+                        .small.text-muted= `Posted on ${post.timestamp}`
                         h2.card-title.h4= post.title
                         p.card-text
                             | #{post.content.split('. ').slice(0, 3).join('. ') + '.'}
